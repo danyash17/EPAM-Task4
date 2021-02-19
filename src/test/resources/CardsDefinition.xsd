@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/cards"
+        xmlns:tns="http://www.example.com/cards"
+        elementFormDefault="qualified">
+
+    <element name="postcard" type="tns:Postcard"/>
+    <element name="letter" type="tns:Letter" substitutionGroup="tns:postcard"/>
+
+    <element name="cards">
+        <complexType>
+            <sequence>
+                <element ref="tns:postcard"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Postcard">
+        <sequence>
+            <element name="cost" type="string"/>
+            <element name="status" type="string"/>
+            <element name="destination" type="tns:Destination"/>
+        </sequence>
+        <attribute name="name" type="string" use="required"/>
+    </complexType>
+
+    <complexType name="Letter">
+        <complexContent>
+            <extension base="tns:Postcard">
+                <attribute name="author" type="string" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Destination">
+        <sequence>
+            <element name="country" type="string"/>
+            <element name="street" type="string"/>
+            <element name="house" type="nonNegativeInteger"/>
+        </sequence>
+    </complexType>
+
+</schema>

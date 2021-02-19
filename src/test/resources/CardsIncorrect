@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cards xmlns="http://www.example.com/cards"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.example.com/cards CardsDefinition.xsd">
+    <letter name="signed" author="Daniil">
+        <cost>2</cost>
+        <status>regular</status>
+        <theme>
+            <color>white</color>
+        </theme>
+    </letter>
+    <postcard name="unsigned">
+        <cost>4</cost>
+        <status>vip</status>
+        <destination>
+            <country>Belarus</country>
+            <street>Chervyakova</street>
+            <house>60</house>
+        </destination>
+    </postcard>
+</cards>
